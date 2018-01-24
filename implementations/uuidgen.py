@@ -24,4 +24,4 @@ def uuidgen(count):
 
         if candidate not in generated:
             generated.add(candidate)
-            yield candidate
+            yield candidate.decode()
