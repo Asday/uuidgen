@@ -14,10 +14,7 @@ def uuidgen(count):
         if len(generated) == count:
             return
 
-        candidate = b64encode(
-            uuid4().int.to_bytes(16, 'little'),
-            b'//',
-        ).upper()[:randint(12, 20)]
+        candidate = b64encode(uuid4().bytes, b'//').upper()[:randint(12, 20)]
 
         while b'/' in candidate:
             candidate = candidate.replace(b'/', choice(ALLOWED_CHARS), 1)
