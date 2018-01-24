@@ -15,8 +15,8 @@ def urandomgen(count):
         if len(generated) == count:
             return
 
-        # desired_length = randint(12, 20)
-        #
+        desired_length = randint(12, 20)
+
         # # Faster than math.ceil
         # urandom_bytes = urandom(((desired_length + 1) * 3) // 4)
         #
@@ -26,9 +26,9 @@ def urandomgen(count):
         # time stemming from locals() dictionary access.
 
         candidate = b64encode(
-            urandom(((randint(12, 20) + 1) * 3) // 4),
+            urandom(((desired_length + 1) * 3) // 4),
             b'//',
-        ).upper()
+        ).upper()[:desired_length]
 
         while b'/' in candidate:
             candidate = candidate.replace(b'/', choice(ALLOWED_CHARS), 1)
