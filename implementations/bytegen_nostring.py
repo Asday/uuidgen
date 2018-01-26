@@ -4,7 +4,7 @@ from string import ascii_uppercase, digits
 
 # Masks for extracting the numbers we want from the maximum possible
 # length of `urandom_bytes`.
-bitmasks = [(0b111111 << (i * 6), i) for i in range(15)]
+bitmasks = [(0b111111 << (i * 6), i) for i in range(20)]
 allowed_chars = (ascii_uppercase + digits).encode() * 16  # 576 chars long
 
 
